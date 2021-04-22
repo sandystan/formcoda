@@ -1,8 +1,5 @@
 var totalSelection = []
 var count = 0
-
-
-
 window.addEventListener('load', (event) => {
     var games = document.getElementById("games")
     console.log('page is fully loaded');
@@ -13,10 +10,8 @@ window.addEventListener('load', (event) => {
         el.textContent = opt;
         el.value = opt;
         games.appendChild(el);
-
     }
 });
-
 function populate(s1, s2) {
     var s1 = document.getElementById(s1);
     var s2 = document.getElementById(s2);
@@ -25,8 +20,6 @@ function populate(s1, s2) {
         "Indonesia": ["Alfamart", "Ayopop", "Bank Transfers Indonesia (Doku)", "Bank Transfers Indonesia (Artajasa)",
             "Bukalapak", "Card Payment Indonesia", "DANA", "DOKU Wallet", "GoPay", "Indomaret", "Indosat", " Itemku", "Kredivo"
             , "LinkAja", "OVO", "Shopee-Pay", "Smartfren", "Telkomsel", "Tokopedia", "Tri Indonesia", "True Money Agent Network", "XL"]
-
-
     }
     for (var country in countrys[s1.value]) {
         // var pair = countrys[s1.value][country].split("|");
@@ -36,46 +29,38 @@ function populate(s1, s2) {
         s2.options.add(newOption);
     }
 }
-
-
-
-
-
-
-
-
-
-
 function submit() {
     var can = {
-        "country":document.getElementById("category").value,
-        "payment-type":document.getElementById("country").value,
-        "games":document.getElementById("games").value
-
+        "country": document.getElementById("category").value,
+        "payment-type": document.getElementById("country").value,
+        "games": document.getElementById("games").value
     }
-    console.log(can,"this is the variable")
-    // console.log("Total Selection Array", totalSelection)
-    document.getElementById("submit-button").disabled = true;
-
-    document.getElementById("category").disabled = true;
-    document.getElementById("country").disabled = true;
-    document.getElementById("games").disabled = true;
-    // console.log("sender ID", sender)
-
-    window.parent.postMessage(
-        JSON.stringify({
-            event_code: "ym-client-event",
-            data: JSON.stringify({
-                event: {
-                    code: "data",
-                    data: {
-                        res: can,
+    if (can.country === "null" || can["payment-type"] === "null" || can.games === "null") {
+        console.log("Empty values are present in dropdown")
+    }
+    else {
+        console.log(can, "this is the variable")
+        // console.log("Total Selection Array", totalSelection)
+        document.getElementById("submit-button").disabled = true;
+        document.getElementById("category").disabled = true;
+        document.getElementById("country").disabled = true;
+        document.getElementById("games").disabled = true;
+        // console.log("sender ID", sender)
+        window.parent.postMessage(
+            JSON.stringify({
+                event_code: "ym-client-event",
+                data: JSON.stringify({
+                    event: {
+                        code: "data",
+                        data: {
+                            res: can,
+                        },
                     },
-                },
+                }),
             }),
-        }),
-        "*"
-    );
+            "*"
+        );
+    }
+    // window.location.replace("https://static.zdassets.com/web_widget/latest/liveChat.html?v=10#key=codapayment1601020012.zendesk.com&settings=JTdCJTIyd2ViV2lkZ2V0JTIyJTNBJTdCJTIyY2hhdCUyMiUzQSU3QiUyMnRpdGxlJTIyJTNBbnVsbCUyQyUyMm1lbnVPcHRpb25zJTIyJTNBJTdCJTIyZW1haWxUcmFuc2NyaXB0JTIyJTNBdHJ1ZSU3RCUyQyUyMmRlcGFydG1lbnRzJTIyJTNBJTdCJTdEJTJDJTIycHJlY2hhdEZvcm0lMjIlM0ElN0IlMjJkZXBhcnRtZW50TGFiZWwlMjIlM0FudWxsJTJDJTIyZ3JlZXRpbmclMjIlM0FudWxsJTdEJTJDJTIyb2ZmbGluZUZvcm0lMjIlM0ElN0IlMjJncmVldGluZyUyMiUzQW51bGwlN0QlMkMlMjJjb25jaWVyZ2UlMjIlM0ElN0IlMjJhdmF0YXJQYXRoJTIyJTNBbnVsbCUyQyUyMm5hbWUlMjIlM0FudWxsJTJDJTIydGl0bGUlMjIlM0FudWxsJTdEJTdEJTJDJTIyY29sb3IlMjIlM0ElN0IlMjJhcnRpY2xlTGlua3MlMjIlM0ElMjIlMjIlMkMlMjJidXR0b24lMjIlM0ElMjIlMjIlMkMlMjJoZWFkZXIlMjIlM0ElMjIlMjIlMkMlMjJsYXVuY2hlciUyMiUzQSUyMiUyMiUyQyUyMmxhdW5jaGVyVGV4dCUyMiUzQSUyMiUyMiUyQyUyMnJlc3VsdExpc3RzJTIyJTNBJTIyJTIyJTJDJTIydGhlbWUlMjIlM0FudWxsJTdEJTdEJTdE&&locale=en-US&title=Web%20Widget%20Live%20Chat");
+    self.location = 'https://static.zdassets.com/web_widget/latest/liveChat.html?v=10#key=codapayment1601020012.zendesk.com&settings=JTdCJTIyd2ViV2lkZ2V0JTIyJTNBJTdCJTIyY2hhdCUyMiUzQSU3QiUyMnRpdGxlJTIyJTNBbnVsbCUyQyUyMm1lbnVPcHRpb25zJTIyJTNBJTdCJTIyZW1haWxUcmFuc2NyaXB0JTIyJTNBdHJ1ZSU3RCUyQyUyMmRlcGFydG1lbnRzJTIyJTNBJTdCJTdEJTJDJTIycHJlY2hhdEZvcm0lMjIlM0ElN0IlMjJkZXBhcnRtZW50TGFiZWwlMjIlM0FudWxsJTJDJTIyZ3JlZXRpbmclMjIlM0FudWxsJTdEJTJDJTIyb2ZmbGluZUZvcm0lMjIlM0ElN0IlMjJncmVldGluZyUyMiUzQW51bGwlN0QlMkMlMjJjb25jaWVyZ2UlMjIlM0ElN0IlMjJhdmF0YXJQYXRoJTIyJTNBbnVsbCUyQyUyMm5hbWUlMjIlM0FudWxsJTJDJTIydGl0bGUlMjIlM0FudWxsJTdEJTdEJTJDJTIyY29sb3IlMjIlM0ElN0IlMjJhcnRpY2xlTGlua3MlMjIlM0ElMjIlMjIlMkMlMjJidXR0b24lMjIlM0ElMjIlMjIlMkMlMjJoZWFkZXIlMjIlM0ElMjIlMjIlMkMlMjJsYXVuY2hlciUyMiUzQSUyMiUyMiUyQyUyMmxhdW5jaGVyVGV4dCUyMiUzQSUyMiUyMiUyQyUyMnJlc3VsdExpc3RzJTIyJTNBJTIyJTIyJTJDJTIydGhlbWUlMjIlM0FudWxsJTdEJTdEJTdE&&locale=en-US&title=Web%20Widget%20Live%20Chat';
 }
-
-
