@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <title>Zendesk Chat</title> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <!-- Start of codapayment1601020012 Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=9cbf6859-88b5-4e1d-9312-39e7d8ba573c"> </script>
+<!-- End of codapayment1601020012 Zendesk Widget script -->
+    <!-- Start of codapayment1601020012 Zendesk Widget script -->
+    <script type="text/javascript">
+        console.log("Before manipulating the widget")
+        const { country, paymentType, game, chat } = Qs.parse(location.search, { ignoreQueryPrefix: true })
+
+        console.log("Country", country)
+        console.log("Payment Type", paymentType)
+        console.log("Game", game)
+
+        // zE('webWidget:on', 'chat:popout', function () {
+        //     console.log('Live chat widget has been opened in another window.');
+        // });
+
+        zE('webWidget:on', 'open', function () {
+            console.log('The widget has been opened!');
+        });
+
+        zE('webWidget:on', 'chat:start', function () {
+            console.log('successfully started a Zendesk Chat!');
+        });
+
+        zE(function () {
+            zE.activate();
+        });
+
+        // window.zESettings = {
+        //     webWidget: {
+        //         color: { theme: '#DB5A0A' }
+        //     }
+        // };
+
+        zE('webWidget', 'chat:addTags', [`Country: ${country}`, `Payment Type: ${paymentType}`, `Game: ${game}`, `Chat: ${chat}`]);
+
+    </script>
+    <!-- End of codapayment1601020012 Zendesk Widget script -->
+</head>
+
+<body>
+    <!-- <div> -->
+    <!-- <p>Hello</p> -->
+    <!-- </div> -->
+    <!-- https://static.zdassets.com/web_widget/latest/liveChat.html?v=10#key=codapayment1601020012.zendesk.com&settings=JTdCJTIyd2ViV2lkZ2V0JTIyJTNBJTdCJTIyY2hhdCUyMiUzQSU3QiUyMnRpdGxlJTIyJTNBbnVsbCUyQyUyMm1lbnVPcHRpb25zJTIyJTNBJTdCJTIyZW1haWxUcmFuc2NyaXB0JTIyJTNBdHJ1ZSU3RCUyQyUyMmRlcGFydG1lbnRzJTIyJTNBJTdCJTdEJTJDJTIycHJlY2hhdEZvcm0lMjIlM0ElN0IlMjJkZXBhcnRtZW50TGFiZWwlMjIlM0FudWxsJTJDJTIyZ3JlZXRpbmclMjIlM0FudWxsJTdEJTJDJTIyb2ZmbGluZUZvcm0lMjIlM0ElN0IlMjJncmVldGluZyUyMiUzQW51bGwlN0QlMkMlMjJjb25jaWVyZ2UlMjIlM0ElN0IlMjJhdmF0YXJQYXRoJTIyJTNBbnVsbCUyQyUyMm5hbWUlMjIlM0FudWxsJTJDJTIydGl0bGUlMjIlM0FudWxsJTdEJTdEJTJDJTIyY29sb3IlMjIlM0ElN0IlMjJhcnRpY2xlTGlua3MlMjIlM0ElMjIlMjIlMkMlMjJidXR0b24lMjIlM0ElMjIlMjIlMkMlMjJoZWFkZXIlMjIlM0ElMjIlMjIlMkMlMjJsYXVuY2hlciUyMiUzQSUyMiUyMiUyQyUyMmxhdW5jaGVyVGV4dCUyMiUzQSUyMiUyMiUyQyUyMnJlc3VsdExpc3RzJTIyJTNBJTIyJTIyJTJDJTIydGhlbWUlMjIlM0FudWxsJTdEJTdEJTdE&&locale=en-US&title=Web%20Widget%20Live%20Chat -->
+    <!-- <a href="javascript:void(zE('webWidget', 'popout'))">Open chat in new window</a> -->
+</body>
+
+</html>
