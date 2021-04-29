@@ -1,14 +1,30 @@
+
+*{
+    padding: 0;
+    margin-left: 2px;
+    box-sizing: border-box;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #385072 !important;
+    color: white;
+ }
+
+ h4{
+    font-family: Tahoma;
+  }
+
 .select-css {
-    display: block;
+    /* display: block;
     font-size: 14px;
     font-family: sans-serif;
     font-weight: 550;
     color: #444;
     line-height: 1.0;
-    padding: .6em 1.4em .5em .8em;
+    padding: .6em 1.4em .5em .8em; */
     width: 70%;
     max-width: 70%;
-    box-sizing: border-box;
+    /* box-sizing: border-box;
     margin: 5px 0px 0px 0px;
     border: 1px solid #aaa;
     box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
@@ -21,10 +37,10 @@
         linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
     background-repeat: no-repeat, repeat;
     background-position: right .7em top 50%, 0 0;
-    background-size: .65em auto, 100%;
+    background-size: .65em auto, 100%; */
 }
 
-.select-css::-ms-expand {
+/* .select-css::-ms-expand {
     display: none;
 }
 
@@ -42,7 +58,7 @@
 
 .select-css option {
     font-weight: normal;
-}
+} */
 
 form {
     width: 300px;
@@ -135,3 +151,71 @@ input[type=number]::-webkit-outer-spin-button {
       height: 20px;
   }
 
+  /* .demo-wrap {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    background-image: url('https://apkplz.net/storage/images/com/chat4/shopcoda/com.chat4.shopcoda_1.png');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+  } */
+
+  /* .demo-wrap {
+    overflow: hidden;
+    position: relative;
+    background: url("https://apkplz.net/storage/images/com/chat4/shopcoda/com.chat4.shopcoda_1.png");
+    background-repeat: no-repeat; */
+    /* background-size: contain, cover; */
+  /* } */
+  
+  /* .demo-bg { */
+    /* opacity: 0.6; */
+    /* position: absolute; */
+    /* background-repeat: no-repeat;
+    background-size: contain, cover; */
+    /* left: 0;
+    top: 0;
+    width: 100%; */
+    /* height: auto; */
+  /* } */
+  
+  /* .demo-content {
+    position: relative;
+  } */
+
+
+  .demo-wrap {
+    position: relative;
+    height: 100vh;
+  }
+  
+  .demo-wrap:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    background: url("https://apkplz.net/storage/images/com/chat4/shopcoda/com.chat4.shopcoda_1.png");
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+  }
+  
+  .demo-content {
+    position: relative;
+  }
+
+  #submit-button{
+      margin-top: 10px;
+  }
